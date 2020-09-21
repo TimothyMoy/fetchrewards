@@ -1,20 +1,12 @@
 import React from 'react';
 
 function Item(props) {
-  console.log('Item Props = ', props)
-
-  if (props.item.listId === 1) {
     return(
-      <p>{props.item.listId}</p>
-    )
-  }
-  else {
-    return (
-      <div className="container">
-        <p>everything else</p>
+      <div>
+        <p>ListId: {props.item.listId}</p>
+        <p>Item Name: {props.item.name}</p>
       </div>
     )
-  }
 }
 
 export default Item;
