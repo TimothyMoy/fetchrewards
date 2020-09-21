@@ -11,7 +11,7 @@ function ItemList (props) {
         item={itemObj}
       />
     )
-  })
+  }).sort((a,b) => a.props.item.listId - b.props.item.listId)
   
   if (props.items.length === 0) {
     itemList = <p>No Items found</p>
