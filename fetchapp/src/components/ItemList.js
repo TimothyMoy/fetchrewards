@@ -3,6 +3,7 @@ import Item from './Item';
 
 function ItemList (props) {
   console.log('Item List = ', props);
+
   let itemList = props.items.map((itemObj) => {
     if (itemObj.name !== null && itemObj.name !== "") {
       return(
@@ -10,20 +11,21 @@ function ItemList (props) {
         key={itemObj.id}
         item={itemObj}
         />
-      )
-    }
-  }).sort((a,b) => a.props.item.listId - b.props.item.listId)
-   
-  console.log('itemlist = ', itemList)
-  if (props.items.length === 0) {
-    itemList = <p>No Items found</p>
-  }
+        )
+      }
+    })
+    itemList.sort((a,b) => a.props.item.id - b.props.item.id)
+    itemList.sort((a,b) => a.props.item.listId - b.props.item.listId)
 
-  return (
-    <div className="container">
+    if (props.items.length === 0) {
+      itemList = <p>No Items found</p>
+    }
+    
+    return (
+      <div className="container">
       {itemList}
     </div>
-  );
+  ); 
 }
 
 export default ItemList;
